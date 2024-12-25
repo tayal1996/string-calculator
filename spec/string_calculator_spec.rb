@@ -49,5 +49,14 @@ describe StringCalculator do
                 expect(StringCalculator.add("//;\n1;2,3\n4")).to eq(10)
             end
         end
+
+        context "raise an expection" do
+            it "for invalid input format" do
+                expect { StringCalculator.add("1,\n") }.to raise_error("invalid input format 1,\n")
+            end
+            it "for negative numbers" do
+                expect { StringCalculator.add("1,-2,-3") }.to raise_error("negative numbers not allowed -2,-3")
+            end
+        end
     end
 end
