@@ -40,5 +40,14 @@ describe StringCalculator do
                 expect(StringCalculator.add("1\n2,3\n4")).to eq(10)
             end
         end
+
+        context "supports different delimiters" do
+            it "should return addition for different delimiters" do
+                expect(StringCalculator.add("//;\n1;2")).to eq(3)
+            end
+            it "should return addition for different delimiters with comma and newline" do
+                expect(StringCalculator.add("//;\n1;2,3\n4")).to eq(10)
+            end
+        end
     end
 end
